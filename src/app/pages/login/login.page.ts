@@ -13,8 +13,7 @@ export class LoginPage implements OnInit {
 
   login() {
     this.authService.login()
-      .then(data => {
-        console.log('test')
+      .then(() => {
         this.router.navigate(['']);
       })
       .catch(err => console.log(err));
