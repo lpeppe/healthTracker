@@ -2,6 +2,8 @@ div.container {
     img {
         height: 100px;
         width: 100px;
+        border: 1px solid #0057e7;
+        border-radius: 50px;
     }
     display: flex;
     align-items: center;
