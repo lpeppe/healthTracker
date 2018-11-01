@@ -14,7 +14,7 @@ export class AuthService implements OnDestroy {
   constructor(public afAuth: AngularFireAuth) {
     this.subscriptions = [];
     this.subscriptions.push(
-      this.afAuth.user
+      this.afAuth.authState
         .subscribe(data => this.user = data)
     );
   }
