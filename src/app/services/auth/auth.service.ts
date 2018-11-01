@@ -16,7 +16,10 @@ export class AuthService implements OnDestroy {
     this.subscriptions = [];
     this.subscriptions.push(
       this.afAuth.authState
-        .subscribe(data => this.user = data)
+        .subscribe(data => {
+          this.user = data
+          console.log(this.user)
+        })
     );
   }
 
