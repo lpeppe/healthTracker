@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Aggiungi un nuovo esame</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form #examForm="ngForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label>Nome esame</ion-label>
+      <ion-input name="name" [(ngModel)]="exam.name" required type="text" placeholder="Calprotectina"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Unità di misura</ion-label>
+      <ion-input name="unit" [(ngModel)]="exam.unit" required type="text" placeholder="mcg/g"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Valore minimo</ion-label>
+      <ion-input name="min" [(ngModel)]="exam.min" required type="text" placeholder="0"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Valore massimo</ion-label>
+      <ion-input name="max" [(ngModel)]="exam.max" required type="text" placeholder="100"></ion-input>
+    </ion-item>
+    <div text-center class="buttonContainer">
+      <ion-button type="submit">Inserisci</ion-button>
+    </div>
+  </form>
+</ion-content>
