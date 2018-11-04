@@ -1,7 +1,7 @@
 <ion-content padding>
   <ion-list>
     <ion-item *ngFor="let exam of exams | async">
-      <button>
+      <button (click)="router.navigateByUrl(exam)">
         <h4>
           {{exam}}
         </h4>

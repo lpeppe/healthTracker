@@ -1,9 +1,10 @@
+import { ExamDetail } from './../../interfaces';
 import { Injectable } from '@angular/core';
 import { AuthService } from './../auth/auth.service';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { switchMap, map, tap } from 'rxjs/operators';
+import { switchMap, map } from 'rxjs/operators';
+import { Exam, ExamResult } from '../../interfaces';
 import { Observable } from 'rxjs';
-import { Exam } from '../../interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -24,9 +25,26 @@ export class DataService {
     return this.db.collection(this.authService.user.uid).doc(exam.name).set({
       details: {
         unit: exam.unit,
-        min: exam.min,
-        max: exam.max
+        min: +exam.min,
+        max: +exam.max
       }
     })
+  }
+
+  addExamResult(examName: string, result: number, date: Date) {
+    return this.db.collection(this.authService.user.uid).doc(examName).collection('results')
+      .add({ result, date })
+  }
+
+  getExamResults(examName) {
+    return <Observable<ExamResult[]>><any>this.db.collection(this.authService.user.uid).doc(examName)
+      .collection('results').valueChanges()
+  }
+
+  getExamDetails(examName) {
+    return <Observable<ExamDetail>><any>this.db.collection(this.authService.user.uid).doc(examName).get()
+      .pipe(
+        map(data => data.data().details)
+      )
   }
 }

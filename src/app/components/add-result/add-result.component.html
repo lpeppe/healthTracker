@@ -1,0 +1,21 @@
+<form #addResultForm="ngForm" (ngSubmit)="onSubmit()">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>Result</ion-label>
+          <ion-input name="result" required [(ngModel)]="result.result"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label>Date</ion-label>
+          <ion-datetime name="date" required [(ngModel)]="result.date" display-format="D/M/YY"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-button type="submit">Add</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>

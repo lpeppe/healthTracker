@@ -35,6 +35,7 @@ export class AddExamPage {
         this.router.navigateByUrl('');
       })
       .catch(err => {
+        console.log(err)
         loading.dismiss()
         this.router.navigateByUrl('');
       })

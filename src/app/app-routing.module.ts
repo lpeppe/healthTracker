@@ -17,6 +17,11 @@ const routes: Routes = [
     loadChildren: './pages/add-exam/add-exam.module#AddExamPageModule',
     canActivate: [AuthGuard]
   },
+  {
+    path: ':examName',
+    loadChildren: './pages/exam-details/exam-details.module#ExamDetailsPageModule',
+    canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({
