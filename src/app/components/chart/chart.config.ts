@@ -12,6 +12,9 @@ export const chartConfig = () => {
                     format: '%d-%m-%Y'
                 }
             }
+        },
+        zoom: {
+            enabled: true
         }
     }
 }
